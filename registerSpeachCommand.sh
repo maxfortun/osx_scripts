@@ -35,6 +35,7 @@ command=$2
 if [ -z "$command" ]; then
 	command=$(echo "$script_name" | sed 's/\([^[:blank:]]\)\([[:upper:]]\)/\1 \2/g')
 fi
+#command="$command %phrase"
 
 lang=$3
 if [ -z "$lang" ]; then
