@@ -1,9 +1,8 @@
 #!/usr/bin/osascript
 
 on run
-	say "Locking screen"
 	tell application "System Events" 
-		start current screen saver
+		key code 53
 	end tell
 end run
 

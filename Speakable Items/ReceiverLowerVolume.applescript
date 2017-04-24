@@ -1,3 +1,5 @@
+#!/usr/bin/osascript
+
 on run
 	say "Turning receiver volume down"
 	repeat with once from 1 to 20
