@@ -6,12 +6,12 @@ on run
 
 	try -- test for file and read values if there
 		(plistFile & ".plist") as POSIX file as alias
-		set nestCamId to (do shell script "defaults read " & plistFile & " nestCamId")
+		set cartoonsUrl to (do shell script "defaults read " & plistFile & " cartoonsUrl")
 	on error errmess -- no file, so make one
-		log errmess & ". You may want to defaults write ~/Library/Preferences/user nestCamId nest-cam-id-here"
+		log errmess & ". You may want to defaults write ~/Library/Preferences/user cartoonsUrl cartoons url here"
 	end try
 
-	tell application "Safari" to open location "http://home.nest.com/camera/" & nestCamId
-        say "Opening Nest Camera"
+	tell application "Safari" to open location cartoonsUrl
+        say "Opening cartoons"
 end run
 
