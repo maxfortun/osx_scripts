@@ -11,7 +11,10 @@ on run
 		log errmess & ". You may want to defaults write ~/Library/Preferences/user cartoonsUrl cartoons url here"
 	end try
 
-	tell application "Safari" to open location cartoonsUrl
+	tell application "Safari" 
+		activate
+		open location cartoonsUrl
+	end tell
         say "Opening cartoons"
 end run
 

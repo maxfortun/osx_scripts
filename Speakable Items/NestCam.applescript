@@ -11,7 +11,10 @@ on run
 		log errmess & ". You may want to defaults write ~/Library/Preferences/user nestCamId nest-cam-id-here"
 	end try
 
-	tell application "Safari" to open location "http://home.nest.com/camera/" & nestCamId
+	tell application "Safari"
+		activate
+		open location "http://home.nest.com/camera/" & nestCamId
+	end tell
         say "Opening Nest Camera"
 end run
 
