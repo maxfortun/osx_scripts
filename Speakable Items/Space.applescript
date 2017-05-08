@@ -2,8 +2,7 @@
 
 on run
 	tell application "System Events" 
-		start current screen saver
+		key code 49 using {command down}
 	end tell
-	say "Locking screen"
 end run
 
