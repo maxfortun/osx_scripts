@@ -2,7 +2,7 @@
 
 on run
 	tell application "System Events" 
-		key code 49 using {command down}
+		key code 49 
 	end tell
 end run
 
