@@ -15,6 +15,6 @@ on run
 		activate
 		open location "http://home.nest.com/camera/" & nestCamId
 	end tell
-        say "Opening Nest Camera"
+        -- say "Opening Nest Camera"
 end run
 

@@ -15,6 +15,6 @@ on run
 		activate
 		open location cartoonsUrl
 	end tell
-        say "Opening cartoons"
+        -- say "Opening cartoons"
 end run
 

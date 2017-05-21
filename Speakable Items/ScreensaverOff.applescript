@@ -2,6 +2,6 @@
 
 on run
 	do shell script "defaults -currentHost write com.apple.screensaver idleTime 0"
-	say "Screensaver off"
+	-- say "Screensaver off"
 end run
 

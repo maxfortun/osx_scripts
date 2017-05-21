@@ -2,6 +2,6 @@
 
 on run
 	do shell script "curl http://localhost:8080/sendCommand/receiverOn"
-	say "Receiver on"
+	-- say "Receiver on"
 end run
 

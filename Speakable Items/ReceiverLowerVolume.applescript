@@ -7,6 +7,6 @@ on run
 			delay 1
 		end try
 	end repeat
-	say "Receiver volume down"
+	-- say "Receiver volume down"
 end run
 
