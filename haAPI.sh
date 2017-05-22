@@ -21,11 +21,11 @@ fi
 
 PASSWORD=$(grep api_password: /Users/max/.homeassistant/configuration.yaml | awk '{ print $2 }')
 
-curl -s -X $method \
-    -H "x-ha-access: $PASSWORD" \
-    -H "Content-Type: application/json" \
+curl	-s -X $method \
+	-H "x-ha-access: $PASSWORD" \
+	-H "Content-Type: application/json" \
 	-d "$data" \
-    "http://localhost:8123/api/$api" | python -m json.tool
+	"http://localhost:8123/api/$api" | python -m json.tool
 
 
 
