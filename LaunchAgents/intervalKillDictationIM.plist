@@ -2,15 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>Label</key>
-    <string>intervalKillDictationIM</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>killall</string>
-        <string>-HUP</string>
-        <string>DictationIM</string>
-    </array>
+	<key>Label</key>
+	<string>intervalKillDictationIM</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>killall</string>
+		<string>-KILL</string>
+		<string>DictationIM com.apple.SpeechRecognitionCore.speechrecognitiond com.apple.SpeechRecognitionCore.brokerd</string>
+	</array>
 	<key>StartInterval</key>
-    <integer>10800</integer>
+	<integer>10800</integer>
 </dict>
 </plist>
