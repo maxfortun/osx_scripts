@@ -3,12 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>intervalKillDictationIM</string>
+	<string>intervalKillSpeechRecognition</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/bin/killall</string>
 		<string>-KILL</string>
-		<string>DictationIM com.apple.SpeechRecognitionCore.speechrecognitiond com.apple.SpeechRecognitionCore.brokerd</string>
+		<string>DictationIM</string>
+		<string>com.apple.SpeechRecognitionCore.speechrecognitiond</string>
+		<string>com.apple.SpeechRecognitionCore.brokerd</string>
 	</array>
 	<key>StartInterval</key>
 	<integer>10800</integer>
