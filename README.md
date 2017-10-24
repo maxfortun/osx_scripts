@@ -68,6 +68,7 @@ http://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp
 https://github.com/robmathers/WhereAmI.git
 
 
+# icalBuddy 1.8.8 from http://hasseg.org/icalBuddy/
 git clone http://github.com/ali-rantakari/icalBuddy
 
 git apply icalBuddy64.patch 
