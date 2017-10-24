@@ -1,6 +1,8 @@
 #!/bin/bash
 
 SWD=$(dirname $0)
+OSX_SCRIPTS=$(defaults read ~/Library/Preferences/user scriptsPath)
+
 OFS=$IFS
 IFS=$(echo -en "\n\b")
 for file in LaunchAgents/$1*.plist; do
@@ -9,7 +11,8 @@ for file in LaunchAgents/$1*.plist; do
 	if [ ! -d ~/Library/LaunchAgents ]; then
 		mkdir -p ~/Library/LaunchAgents
 	fi
-	cp $file ~/Library/LaunchAgents/
+	sed "s#\${OSX_SCRIPTS}#$OSX_SCRIPTS#g" $file > ~/Library/LaunchAgents/$basename
+
 	launchctl unload -w ~/Library/LaunchAgents/$basename
 	launchctl load -w ~/Library/LaunchAgents/$basename
 done
