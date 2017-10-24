@@ -68,4 +68,14 @@ http://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp
 https://github.com/robmathers/WhereAmI.git
 
 
+git clone http://github.com/ali-rantakari/icalBuddy
+
+git apply icalBuddy64.patch 
+
+make clean
+
+make 64BIT=true
+
+
+
 
