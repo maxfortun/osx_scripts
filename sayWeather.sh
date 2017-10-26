@@ -8,7 +8,7 @@ if [ ! -x node_modules/.bin/jp ]; then
 	npm install jp-cli
 fi
 
-if ! ./receiverStatush.sh; then
+if ! ./receiverStatus.sh; then
 	SHOULD_TURN_RECEIVER_OFF=true
 	./receiverOn.sh
 fi
