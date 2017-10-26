@@ -6,7 +6,7 @@ cd $(dirname $0)
 # https://calendar.google.com/calendar/ical/doecalendars%40gmail.com/public/basic.ics
 
 if [ ! -x icalBuddy ]; then
-	echo "This app relied on icalBuddy for school closure dates. icalBuddy is missing."
+	echo "This app relies on icalBuddy for school closure dates. icalBuddy is missing."
 	exit
 fi
 
