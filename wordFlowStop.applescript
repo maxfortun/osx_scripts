@@ -5,6 +5,7 @@ on run
 	-- stop listening
 	tell application "SpeechRecognitionServer"
 		stop listening for identifier "wordFlow"
+		quit
 	end tell
 end quit
 
