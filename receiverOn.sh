@@ -10,7 +10,10 @@ tvId=$(./tvId.sh)
 for (( i=0; i<10; i++ )); do
 	system_profiler SPDisplaysDataType -detailLevel mini | egrep "($receiverId|$tvId)" >/dev/null 2>/dev/null && exit
 	curl http://localhost:8080/sendCommand/receiverOn
-	sleep 10
+	for (( j=0; j<10; j++ )); do
+		system_profiler SPDisplaysDataType -detailLevel mini | egrep "($receiverId|$tvId)" >/dev/null 2>/dev/null && exit
+		sleep 1
+	done
 done
 exit 1
 

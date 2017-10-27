@@ -2,7 +2,10 @@
 
 cd $(dirname $0)
 
-./receiverOn.sh
+if ! ./receiverStatus.sh; then
+	SHOULD_TURN_RECEIVER_OFF=true
+	./receiverOn.sh
+fi
 
 prefixes=("Дети" "Повторяю")
 
@@ -14,7 +17,10 @@ for (( i=0; i<2; i++ )); do
 	sleep 2
 done
 
-./receiverOff.sh
+if [ "$SHOULD_TURN_RECEIVER_OFF" = "true" ]; then
+	./receiverOff.sh
+fi
+
 
 exit 1
 
