@@ -1,5 +1,8 @@
 #!/bin/bash
 cd $(dirname $0)
+
+export PATH="$PATH:/usr/local/bin"
+
 if [ ! -x node_modules/.bin/jp ]; then
 	if ! which npm >/dev/null; then
 		echo "NodeJS is required. Please install."
@@ -8,8 +11,8 @@ if [ ! -x node_modules/.bin/jp ]; then
 	npm install jp-cli
 fi
 
-if ! ./receiverState.sh; then
-	RECEIVER_CONTROL=true
+RECEIVER_STATE=$(./receiverState.sh)
+if [ "$RECEIVER_STATE" = "off" ]; then
 	./receiverOn.sh
 fi
 
@@ -19,7 +22,7 @@ api=$(curl -s -L https://api.weather.gov/points/$loc)
 url=$(echo "$api" | node_modules/.bin/jp properties.forecast | sed 's/^"//g;s/"$//g')
 curl -s $url | egrep '"name"|"detailedForecast"'|head -2|cut -d'"' -f4|xargs say
 
-if [ "$RECEIVER_CONTROL" = "true" ]; then
+if [ "$RECEIVER_STATE" = "off" ]; then
 	./receiverOff.sh
 fi
 
