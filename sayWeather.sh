@@ -9,7 +9,7 @@ if [ ! -x node_modules/.bin/jp ]; then
 fi
 
 if ! ./receiverStatus.sh; then
-	SHOULD_TURN_RECEIVER_OFF=true
+	RECEIVER_CONTROL=true
 	./receiverOn.sh
 fi
 
@@ -19,7 +19,7 @@ api=$(curl -s -L https://api.weather.gov/points/$loc)
 url=$(echo "$api" | node_modules/.bin/jp properties.forecast | sed 's/^"//g;s/"$//g')
 curl -s $url | egrep '"name"|"detailedForecast"'|head -2|cut -d'"' -f4|xargs say
 
-if [ "$SHOULD_TURN_RECEIVER_OFF" = "true" ]; then
+if [ "$RECEIVER_CONTROL" = "true" ]; then
 	./receiverOff.sh
 fi
 

@@ -15,7 +15,7 @@ fi
 ./icalBuddy -ic "NYC Public School Calendar" eventsToday| grep -i school.*closed >/dev/null && exit 1
 
 if ! ./receiverStatus.sh; then
-	SHOULD_TURN_RECEIVER_OFF=true
+	RECEIVER_CONTROL=true
 	./receiverOn.sh
 fi
 
@@ -30,7 +30,7 @@ for (( i=0; i<2; i++ )); do
 	sleep 2
 done
 
-if [ "$SHOULD_TURN_RECEIVER_OFF" = "true" ]; then
+if [ "$RECEIVER_CONTROL" = "true" ]; then
 	./receiverOff.sh
 fi
 
