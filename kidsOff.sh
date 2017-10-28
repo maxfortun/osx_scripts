@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-if ! ./receiverStatus.sh; then
+if ! ./receiverState.sh; then
 	RECEIVER_CONTROL=true
 	./receiverOn.sh
 fi

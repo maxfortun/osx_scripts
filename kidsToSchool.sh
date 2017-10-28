@@ -14,7 +14,7 @@ fi
 #./icalBuddy -ic "NYC Public School Calendar" eventsFrom:"Nov 23, 2017" to:"Nov 23, 2017"| grep -i school.*closed >/dev/null && exit 1
 ./icalBuddy -ic "NYC Public School Calendar" eventsToday| grep -i school.*closed >/dev/null && exit 1
 
-if ! ./receiverStatus.sh; then
+if ! ./receiverState.sh; then
 	RECEIVER_CONTROL=true
 	./receiverOn.sh
 fi

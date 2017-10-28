@@ -10,7 +10,7 @@ tvId=$(./tvId.sh)
 
 ./haAPI.sh media_player turn_off rxv683_fea8d2
 for (( i=0; i<10; i++ )); do
-	./receiverStatus.sh || exit
+	./receiverState.sh || exit
 	sleep 1
 done
 
