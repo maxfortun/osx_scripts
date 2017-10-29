@@ -7,7 +7,11 @@ if ! ./receiverState.sh; then
 	./receiverOn.sh
 fi
 
-./receiverSource.sh HDMI1
+RECEIVER_SOURCE=$(./receiverSource.sh)
+
+if [ "$RECEIVER_SOURCE" != "HDMI1" ]; then
+	./receiverSource.sh HDMI1
+fi
 
 prefixes=("Дети" "Повторяю")
 
@@ -18,6 +22,10 @@ for (( i=0; i<2; i++ )); do
 	echo say -v Milena "$prefix, время идти мыться и готовиться ко сну."
 	sleep 2
 done
+
+if [ "$RECEIVER_SOURCE" != "HDMI1" ]; then
+	./receiverSource.sh $RECEIVER_SOURCE
+fi
 
 if [ "$RECEIVER_CONTROL" = "true" ]; then
 	./receiverOff.sh
