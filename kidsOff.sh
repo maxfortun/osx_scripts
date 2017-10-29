@@ -7,6 +7,8 @@ if ! ./receiverState.sh; then
 	./receiverOn.sh
 fi
 
+./receiverSource.sh HDMI1
+
 prefixes=("Дети" "Повторяю")
 
 for (( i=0; i<2; i++ )); do
