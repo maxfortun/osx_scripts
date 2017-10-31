@@ -1,0 +1,95 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 40.7317
+  longitude: -73.9885
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 11
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: America/New_York
+
+# Show links to resources in log and frontend
+introduction:
+
+# Example configuration.yaml entry
+logger:
+  default: debug
+  logs:
+    homeassistant.components.device_tracker: debug
+    homeassistant.components.camera: debug
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Uncomment this to add a password (recommended!)
+  api_password: ur_pass_h3r3
+  # Uncomment this if you are using SSL or running in Docker etc
+  # base_url: example.duckdns.org:8123
+  server_host: 127.0.0.1
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time.
+history:
+
+# View all events in a logbook
+logbook:
+
+# Track the sun
+sun:
+
+# Weather Prediction
+sensor:
+  platform: yr
+
+# Text to speech
+tts:
+  platform: google
+
+group: !include groups.yaml
+automation: !include automations.yaml
+
+wink:
+  email: ur_email_h3r3
+  password: ur_pass_h3r3
+  #client_id: ur_client_id_h3r3
+  #client_secret: ur_client_secret_h3r3
+
+switch:
+  platform: broadlink
+  host: 192.168.1.8
+  mac: '19:fa:ee:0d:43:b4'
+  switches:
+    tv:
+      friendly_name: "TV Power"
+      command_on: 'JgAYAZGVETkROBI4ERMRFBAUERQQFBA6ETgSOBETERQRExEUEBQQFBE5ERMRFBETERQRExETEjgRExI4ETkROBI4ETkROBEABg6UlRE4EjgRORETEBQRFBAUERQQORE5EDkSExAUERQQFBAVEBQQOhETERMRFBAUEBURExA5EhMRORE4ETkRORE4ETkRAAYRkZQSOBE5ETgSExETERMRFBETETkROBI4ERQRExETERQRExEUEDkRFBAUERMSExETERQROBEUETgRORE5ETgRORE4EgAGEJGVETkROBE5ERMRFBAUERMSExE4EjgRORETERQRExETERQRExE5ERMRFBETERMSExETETkRExE5ETgSOBE5ETgSOBEADQU='
+      command_off: 'JgAYAZGVETkROBI4ERMRFBAUERQQFBA6ETgSOBETERQRExEUEBQQFBE5ERMRFBETERQRExETEjgRExI4ETkROBI4ETkROBEABg6UlRE4EjgRORETEBQRFBAUERQQORE5EDkSExAUERQQFBAVEBQQOhETERMRFBAUEBURExA5EhMRORE4ETkRORE4ETkRAAYRkZQSOBE5ETgSExETERMRFBETETkROBI4ERQRExETERQRExEUEDkRFBAUERMSExETERQROBEUETgRORE5ETgRORE4EgAGEJGVETkROBE5ERMRFBAUERMSExE4EjgRORETERQRExETERQRExE5ERMRFBETERMSExETETkRExE5ETgSOBE5ETgSOBEADQU='
+    ac:
+      friendly_name: "AC Power"
+      command_on: "JgB4AAABHY4SEhMSEiMSERISEiQSERISEhISIxIjEhISEhISEiMSEhISEiMSIxIkEhETEhIjEhETERMjEiMSIxMREhISIxMRExESIxISEyITERISEhISERMjEhISERMRExESEhISERISIxMRExESEhMiExESEhISEQANBQ=="
+      command_off: "JgB4AAABHY4SEhMSEiMSERISEiQSERISEhISIxIjEhISEhISEiMSEhISEiMSIxIkEhETEhIjEhETERMjEiMSIxMREhISIxMRExESIxISEyITERISEhISERMjEhISERMRExESEhISERISIxMRExESEhMiExESEhISEQANBQ=="
+
+
+media_player:
+  platform: samsungtv
+  host: 192.168.1.2
+  port: 52235
+
