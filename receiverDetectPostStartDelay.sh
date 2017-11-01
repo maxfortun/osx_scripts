@@ -7,7 +7,7 @@ start=$(date +"%s")
 for (( i=0; i<10; i++)); do
 	now=$(date +"%s")
 	delay=$(( now-start ))
-	./haAPI.sh states/media_player.rxv683_fea8d2 
+	./haAPI.sh states/media_player.living 
 	echo $delay
 	say $delay
 	sleep 1

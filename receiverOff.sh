@@ -8,7 +8,7 @@ tvId=$(./tvId.sh)
 [ -z "$tvId" ] && { echo "tvId is not set. Use tvId.sh to set it."; exit 1; }
 ./tvOff.sh
 
-./haAPI.sh media_player turn_off rxv683_fea8d2
+./haAPI.sh media_player turn_off living
 for (( i=0; i<10; i++ )); do
 	./receiverState.sh || exit
 	sleep 1
