@@ -19,7 +19,6 @@ if ! ./receiverState.sh; then
 	./receiverOn.sh
 fi
 
-
 prefixes=("Дети" "Повторяю")
 
 for (( i=0; i<2; i++ )); do

@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://home-assistant.io/developers/rest_api/
 
 if [ -z "$1" ]; then 
 	echo "Usage: $0 <api>"

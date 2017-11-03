@@ -67,9 +67,10 @@ tts:
 group: !include groups.yaml
 automation: !include automations.yaml
 
+# no need for params. Use configurator and follow onscreen instructions
 wink:
-  email: ur_email_h3r3
-  password: ur_pass_h3r3
+  #email: ur_email_h3r3
+  #password: ur_pass_h3r3
   #client_id: ur_client_id_h3r3
   #client_secret: ur_client_secret_h3r3
 
