@@ -7,7 +7,7 @@ fi
 
 SWD=$(dirname $0)
 
-SCRIPTS_DIR=~/Library/Speach/Speakable\ Items/
+SCRIPTS_DIR=~/Library/Speech/Speakable\ Items/
 
 lwd=$(pwd)
 scriptParam="$1"
