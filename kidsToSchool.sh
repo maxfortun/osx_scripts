@@ -11,8 +11,7 @@ if [ ! -x icalBuddy ]; then
 fi
 
 # check if school is closed, and exit if it is
-#./icalBuddy -ic "NYC Public School Calendar" eventsFrom:"Nov 23, 2017" to:"Nov 23, 2017"| grep -i school.*closed >/dev/null && exit 1
-./icalBuddy -ic "NYC Public School Calendar" eventsToday| grep -i school.*closed >/dev/null && exit 1
+./icalBuddy -nc -ic "NYC Public School Calendar" eventsFrom:"$(date +'%b %d, %Y')" to:"$(date +'%b %d, %Y')" | xargs | egrep -i '(do not attend|school.*closed)' >/dev/null && exit 1
 
 if ! ./receiverState.sh; then
 	RECEIVER_CONTROL=true
