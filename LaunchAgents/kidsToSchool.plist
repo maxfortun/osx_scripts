@@ -51,5 +51,9 @@
 			<integer>5</integer>
 		</dict>
 	</array>
+	<key>StandardOutPath</key>
+	<string>/Users/max/logs/kidsToSchool.out</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/max/logs/kidsToSchool.err</string>
 </dict>
 </plist>

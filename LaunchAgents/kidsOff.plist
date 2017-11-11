@@ -17,5 +17,9 @@
 			<integer>55</integer>
 		</dict>
 	</array>
+	<key>StandardOutPath</key>
+	<string>/Users/max/logs/kidsOff.out</string>
+	<key>StandardErrorPath</key>
+	<string>/Users/max/logs/kidsOff.err</string>
 </dict>
 </plist>
