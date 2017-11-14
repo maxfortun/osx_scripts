@@ -13,6 +13,6 @@ on run
 		return
 	end try
 
-	do shell script scriptsPath & "/receiverOn.sh"
+	do shell script scriptsPath & "/receiverPower.sh on"
 end run
 
