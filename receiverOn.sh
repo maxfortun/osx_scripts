@@ -2,8 +2,7 @@
 
 cd $(dirname $0)
 
-./receiverState.sh && exit
+./receiverPower.sh on
 
-./haAPI.sh media_player turn_on living
+[ -n "$1" ] && sleep "$1"
 
-sleep 15

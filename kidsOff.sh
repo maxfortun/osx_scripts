@@ -3,16 +3,11 @@ export PATH="$PATH:/usr/local/bin"
 
 cd $(dirname $0)
 
-if ! ./receiverState.sh; then
-	RECEIVER_CONTROL=true
-	./receiverOn.sh
-fi
+RECEIVER_STATE=$(./receiverState.sh)
+./receiverState.sh on HDMI1 0.75 2>/dev/null
 
-RECEIVER_SOURCE=$(./receiverSource.sh)
-
-if [ "$RECEIVER_SOURCE" != "HDMI1" ]; then
-	./receiverSource.sh HDMI1
-fi
+# Give receiver time to boot up
+[[ "$RECEIVER_STATE" =~ ^off ]] && sleep 15
 
 prefixes=("Дети" "Повторяю")
 
@@ -24,14 +19,7 @@ for (( i=0; i<2; i++ )); do
 	sleep 2
 done
 
-if [ "$RECEIVER_SOURCE" != "HDMI1" ]; then
-	./receiverSource.sh $RECEIVER_SOURCE
-fi
-
-if [ "$RECEIVER_CONTROL" = "true" ]; then
-	./receiverOff.sh
-fi
-
+./receiverState.sh $RECEIVER_STATE 2>/dev/null
 
 exit 1
 

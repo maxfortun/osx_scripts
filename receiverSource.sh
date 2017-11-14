@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-./receiverOn.sh > /dev/null
+./receiverPower.sh on > /dev/null
 
 if [ -z "$1" ]; then
 	./haAPI.sh states/media_player.living | node_modules/.bin/jp attributes.source | sed 's/^"//g;s/"$//g'
