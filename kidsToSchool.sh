@@ -18,7 +18,7 @@ RECEIVER_STATE=$(./receiverState.sh)
 ./receiverState.sh on HDMI1 0.75 2>/dev/null
 
 # Give receiver time to boot up
-[[ "$RECEIVER_STATE" =~ ^off ]] && sleep 15
+[[ "$RECEIVER_STATE" =~ ^on\ HDMI1 ]] || sleep 15
 
 prefixes=("Дети" "Повторяю")
 

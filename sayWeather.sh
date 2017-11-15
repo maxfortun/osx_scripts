@@ -15,7 +15,7 @@ RECEIVER_STATE=$(./receiverState.sh)
 ./receiverState.sh on HDMI1 0.75 2>/dev/null
 
 # Give receiver time to boot up
-[[ "$RECEIVER_STATE" =~ ^off ]] && sleep 15
+[[ "$RECEIVER_STATE" =~ ^on\ HDMI1 ]] || sleep 15
 
 wanIP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 loc=$(curl -s https://ipinfo.io/$wanIP/loc)
