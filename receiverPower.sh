@@ -7,5 +7,11 @@ power=${state[0]}
 
 [ "$power" = "$1" ] && exit 
 
+if [ "$1" = "off" ]; then
+	tvId=$(./tvId.sh)
+	[ -z "$tvId" ] && { echo "tvId is not set. Use tvId.sh to set it."; exit 1; }
+	./tvOff.sh
+fi
+
 ./haAPI.sh media_player turn_$1 living
 
