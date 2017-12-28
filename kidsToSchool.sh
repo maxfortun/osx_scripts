@@ -12,7 +12,7 @@ if [ ! -x icalBuddy ]; then
 fi
 
 # check if school is closed, and exit if it is
-./icalBuddy -nc -ic "NYC Public School Calendar" eventsFrom:"$(date +'%b %d, %Y')" to:"$(date +'%b %d, %Y')" | /usr/bin/xargs | /usr/bin/egrep -i '(do not attend|school.*closed)' >/dev/null && exit 1
+./icalBuddy -nc -ic "NYC Public School Calendar" eventsFrom:"$(date +'%b %d, %Y')" to:"$(date +'%b %d, %Y')" | /usr/bin/paste -s -d " " - | /usr/bin/egrep -i '(do not attend|school.*closed)' >/dev/null && exit 1
 
 RECEIVER_STATE=$(./receiverState.sh)
 ./receiverState.sh on HDMI1 0.75 2>/dev/null
