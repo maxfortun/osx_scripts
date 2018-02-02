@@ -6,8 +6,7 @@
 	<string>homeassistant</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin/hass</string>
-		<string>--daemon</string>
+		<string>/Users/max/Applications/homeassistant.sh</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
