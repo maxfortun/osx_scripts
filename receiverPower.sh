@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-state=( $(./haAPI.sh states/media_player.living | ./node_modules/.bin/jp state | /usr/bin/sed 's/^"//g;s/"$//g') )
+state=( $(Applications/homeassistant/haAPI.sh states/media_player.living | ./node_modules/.bin/jp state | /usr/bin/sed 's/^"//g;s/"$//g') )
 power=${state[0]}
 
 [ "$power" = "$1" ] && exit 
@@ -13,5 +13,5 @@ if [ "$1" = "off" ]; then
 	./tvOff.sh
 fi
 
-./haAPI.sh media_player turn_$1 living
+Applications/homeassistant/haAPI.sh media_player turn_$1 living
 

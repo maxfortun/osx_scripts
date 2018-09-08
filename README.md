@@ -1,5 +1,7 @@
 # osx_scripts
 
+sudo port install jq
+
 sudo port install python36
 
 sudo port select --set python python36
