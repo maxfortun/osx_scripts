@@ -6,9 +6,9 @@ if ! [ "$oldState" = "off" -a "$newState" = "on" ]; then
 	exit
 fi
 
-cd $(dirname $0)
+OSX_SCRIPTS=$(defaults read ~/Library/Preferences/user scriptsPath)
 
-export PATH="$PATH:/usr/local/bin:.:..:../../.."
+export PATH="$PATH:/usr/local/bin:$OSX_SCRIPTS"
 
 RECEIVER_STATE=$(receiverState.sh)
 receiverState.sh on HDMI1 0.75 2>/dev/null
