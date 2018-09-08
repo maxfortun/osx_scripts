@@ -25,7 +25,7 @@ script -q /dev/null $SWD/haAPI.sh stream | while IFS= read -r line; do
 		continue
 	fi
 	data="${BASH_REMATCH[2]}"
-	read -r event_type entity_id old_state new_state < <(echo "$data" | jq -r '.event_type + " " + .data.entity_id + " " + .data.old_state.state + " " + .data.new_state.state')
+	read -r event_type entity_id old_state new_state < <(echo "$data" | /opt/local/bin/jq -r '.event_type + " " + .data.entity_id + " " + .data.old_state.state + " " + .data.new_state.state')
 	script="$SWD/events/${event_type}_${entity_id}_${old_state}_${new_state}.sh"
 	echo "$(date +'%Y/%M/%d %H:%M:%S') $script"
 	[ -x "$script" ] && "$script"
