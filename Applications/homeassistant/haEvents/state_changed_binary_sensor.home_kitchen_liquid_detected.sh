@@ -8,7 +8,7 @@ fi
 
 cd $(dirname $0)
 
-export PATH="$PATH:/usr/local/bin:../../.."
+export PATH="$PATH:/usr/local/bin:.:..:../../.."
 
 RECEIVER_STATE=$(receiverState.sh)
 receiverState.sh on HDMI1 0.75 2>/dev/null
