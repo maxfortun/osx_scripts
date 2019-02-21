@@ -11,4 +11,15 @@ if [ -n "$minFreeSpace" ]; then
 	launchctl start com.apple.diskspaced
 fi
 
+cat <<__EOT__
+Add below to /var/db/launchd.db/com.apple.launchd/overrides.plist and reboot
+
+<key>com.apple.diskspaced</key>
+<dict>
+        <key>Disabled</key>
+        <true/>
+</dict>
+
+
+__EOT__
 
