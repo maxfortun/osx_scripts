@@ -11,7 +11,7 @@ on run
 		log errmess & ". You may want to defaults write ~/Library/Preferences/user netflixUrl netflix url here"
 	end try
 
-	tell application "Safari" 
+	tell application "Google Chrome" 
 		activate
 		open location netflixUrl
 	end tell
