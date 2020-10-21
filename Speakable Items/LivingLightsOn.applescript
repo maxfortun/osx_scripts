@@ -6,14 +6,14 @@ on run
 
 	try -- test for file and read values if there
 		(plistFile & ".plist") as POSIX file as alias
-		set scriptsPath to (do shell script "defaults read " & plistFile & " scriptsPath")
+		set haScriptsPath to (do shell script "defaults read " & plistFile & " haScriptsPath")
 	on error errmess -- no file, so make one
-		log errmess & ". You may want to defaults write ~/Library/Preferences/user scriptsPath scripts path here"
+		log errmess & ". You may want to defaults write ~/Library/Preferences/user haScriptsPath scripts path here"
 		#error number -128
 		return
 	end try
 
-	do shell script scriptsPath & "/haAPI.sh light turn_on home_living_track"
-	do shell script scriptsPath & "/haAPI.sh light turn_on home_living_floor"
+	do shell script haScriptsPath & "/haAPI.sh light turn_on home_living_track"
+	do shell script haScriptsPath & "/haAPI.sh light turn_on home_living_floor"
 end run
 

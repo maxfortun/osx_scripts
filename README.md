@@ -1,5 +1,7 @@
 # osx_scripts
 
+sudo port install jq
+
 sudo port install python36
 
 sudo port select --set python python36
@@ -77,6 +79,8 @@ make clean
 
 make 64BIT=true
 
+add jp from https://github.com/jmespath/jp/
+wget https://github.com/jmespath/jp/releases/download/0.1.3/jp-darwin-amd64
 
-
+cp Applications/homeassistant/*.sh ~/Applications/
 

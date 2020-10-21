@@ -22,7 +22,7 @@ if [ -n "$volume" -a "$volume" != "undefined" ]; then
 	./receiverVolume.sh $volume >&2
 fi
 
-state=$(./haAPI.sh states/media_player.living)
+state=$(Applications/homeassistant/haAPI.sh states/media_player.living)
 power=$(echo "$state" | ./node_modules/.bin/jp state | /usr/bin/sed 's/^"//g;s/"$//g')
 source=$(echo "$state" | ./node_modules/.bin/jp attributes.source | sed 's/^"//g;s/"$//g')
 volume=$(echo "$state" | ./node_modules/.bin/jp attributes.volume_level | sed 's/^"//g;s/"$//g')

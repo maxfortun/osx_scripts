@@ -29,13 +29,15 @@ else
 	api=$1
 fi
 
-PASSWORD=$(grep api_password: /Users/max/.homeassistant/configuration.yaml | /usr/bin/awk '{ print $2 }')
+PASSWORD=$(grep api_password: $HOME/.homeassistant/configuration.yaml | /usr/bin/awk '{ print $2 }')
 
-curl	-s -X $method \
-	-H "x-ha-access: $PASSWORD" \
-	-H "Content-Type: application/json" \
-	-d "$data" \
-	"http://localhost:8123/api/$api" | /opt/local/bin/python -m json.tool
+declare -a command=()
+command+=(curl -s -X $method -H "x-ha-access: $PASSWORD" -H "Content-Type: application/json")
+[ -n "$data" ] && command+=(-d "$data")
+command+=("http://localhost:8123/api/$api")
+
+#echo "${command[@]}"
+"${command[@]}"
 
 
 

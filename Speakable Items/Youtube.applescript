@@ -6,13 +6,15 @@ on run
 
 	try -- test for file and read values if there
 		(plistFile & ".plist") as POSIX file as alias
-		set haScriptsPath to (do shell script "defaults read " & plistFile & " haScriptsPath")
+		set youtubeUrl to (do shell script "defaults read " & plistFile & " youtubeUrl")
 	on error errmess -- no file, so make one
-		log errmess & ". You may want to defaults write ~/Library/Preferences/user haScriptsPath scripts path here"
-		#error number -128
-		return
+		log errmess & ". You may want to defaults write ~/Library/Preferences/user youtubeUrl youtube url here"
 	end try
 
-	do shell script haScriptsPath & "/haAPI.sh light turn_on home_kitchen_track"
+	tell application "Google Chrome" 
+		activate
+		open location youtubeUrl
+	end tell
+        -- say "Opening cartoons"
 end run
 

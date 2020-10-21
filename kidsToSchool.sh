@@ -5,6 +5,8 @@ cd $(dirname $0)
 
 # need this calendar: http://schools.nyc.gov/Calendar/default.htm#phone
 # https://calendar.google.com/calendar/ical/doecalendars%40gmail.com/public/basic.ics
+# https://www.schools.nyc.gov/CustomApi/CalendarActions/DownloadCalendar
+# https://www.schools.nyc.gov/docs/default-source/default-document-library/school-calendar-2019-2020
 
 if [ ! -x icalBuddy ]; then
 	echo "This app relies on icalBuddy for school closure dates. icalBuddy is missing."
