@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 function random_color() {
 	local color=$(( 65535 - ( RANDOM % 10000 ) ))
@@ -9,4 +9,4 @@ red=$(random_color)
 green=$(random_color)
 blue=$(random_color)
 
-$(dirname $)/terminalBackground.scpt $red $green $blue
+$(dirname $0)/terminalBackground.scpt $red $green $blue
