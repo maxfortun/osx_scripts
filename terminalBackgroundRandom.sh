@@ -3,7 +3,7 @@
 count=$(ps -ex|grep -v grep|grep ttys|grep login|wc -l)
 
 function random_color() {
-	local color=$(( 65535 - ( RANDOM % ( 1000 * count ) ) ))
+	local color=$(( 65535 - ( RANDOM % ( 10000 * count ) ) ))
 	echo $color
 }
 
