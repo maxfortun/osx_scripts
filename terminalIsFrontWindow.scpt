@@ -13,7 +13,10 @@ const skipKeys = {
 	miniaturizable: true,
 	miniaturized: true,
 	resizable: true,
-	zoomable: true
+	zoomable: true,
+
+	contents: true,
+	history: true
 };
 
 function toObj(path, objIn) {
@@ -53,13 +56,13 @@ function windowInfo() {
 	let frontWindowGroupId = null;
 	const winGroups = {};
 	for(let winId in windows) {
-		const win      = windows[winId];
+		const win	  = windows[winId];
 		const winPath  = ['win', winId];
 		const winProps = toObj(winPath, win.properties());
 		// console.log(winPath, JSON.stringify(winProps, null, 2));
 	
-		const winFrame = winProps.frame;
-		const key = [winFrame.x,winFrame.y,winFrame.width,winFrame.height].join(":");
+		const winOrigin = winProps.origin;
+		const key = [winOrigin.x,winOrigin.y].join(":");
 	
 		if(winProps.frontmost) {
 			frontWindowGroupId = key;
@@ -70,8 +73,17 @@ function windowInfo() {
 			winGroup = [];
 			winGroups[key] = winGroup;
 		}
-		winGroup.push({ win, winPath, winProps, winFrame });
-		// console.log(winPath, key, JSON.stringify(winFrame, null, 2));
+		winGroup.push({ win, winPath, winProps, winOrigin });
+		// console.log(winPath, key, JSON.stringify(winOrigin, null, 2));
+
+		/*
+		for(let tabId in win.tabs) {
+			const tab = win.tabs[tabId];
+			const tabPath = winPath.concat(['tabs', tabId]);
+			const tabProps = toObj(tabPath, tab.properties());
+			console.log(tabPath, JSON.stringify(tabProps, null, 2));
+		}
+		*/
 	}
 
 	return {
@@ -83,6 +95,7 @@ function windowInfo() {
 function isFrontWindow() {
 	const winInfo = windowInfo();
 	const frontWindowGroup = winInfo.groups[winInfo.frontWindowGroupId];
+	// console.log(JSON.stringify(frontWindowGroup, null, 2));
 	if(frontWindowGroup.length == 1) {
 		return 'true';
 	}
