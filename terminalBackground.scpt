@@ -6,12 +6,6 @@ on run argv
 	set blue to (item 3 of argv)
 
 	tell application "Terminal"
-		set current_window to front window
-		set tab_count to count of tabs of current_window
-		-- log "Tabs: " & tab_count & " -- " 
-
-		if tab_count > 1 then end run
-
-		set background color of window 1 to {red, green, blue}
+		set background color of front window to {red, green, blue}
 	end tell
 end run
