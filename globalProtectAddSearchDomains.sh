@@ -1,5 +1,5 @@
 #!env bash
-set -xeuo pipefail
+set -euo pipefail
 
 KEY="State:/Network/Service/gpd.pan/DNS"
 
